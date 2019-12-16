@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="main.css?237 " />
+	<link rel="stylesheet" href="hopscotch.css" />
+	<title>MDH Converter</title>
+</head>
+<body>
+	<header>
+		<h1>MDH Converter</h1>
+	</header>
+	
+	<div id=container>
+		<div class=box><textarea id=vanilla-text># test header
+
+ここにMarkdownで入力すると、Previewと整形されたコードが出力され、画面右下のコピーボタンからコードをコピーできます。
+		
+* list 1
+* list 2
+* list 3
+
+1. list 1
+2. list 2
+3. list 3
+
+```javascript
+// 特殊文字エンコードも自動で行います 例: <h1>head 1</h1>
+function org_renderer() {
+	var renderer = new marked.Renderer();
+	renderer.heading = function (text, level) {
+		return '<h' + level + '>' + text + '</h' + level + '>\n\n';
+	};
+	marked.setOptions({
+		renderer: renderer,
+	});
+}
+```
+
+[shortcode str=前後に空行があるショートコードは段落とみなしません]
+
+[shortcode]
+
+ショートコードの中に段落をつけたい場合、
+普段のように入力するだけです。
+
+ただし、ショートコードの前後に空行を置くことを忘れずに。
+
+[/shortcode]
+
+</textarea> </div>
+		<div class=box>
+			<div id=md-area></div>
+		</div>
+		<div class=box><textarea id=copy-area></textarea> </div>
+	</div>
+	<div id=copy><svg xmlns="http://www.w3.org/2000/svg" id="copy-svg" viewBox="0 0 48 48"><rect width="48" height="48" fill="none"/><path d="M26,43V35a3,3,0,0,1,3-3h9" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path d="M27,43H13a3,3,0,0,1-3-3V8a3,3,0,0,1,3-3H35a3,3,0,0,1,3,3V27" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><line x1="38" y1="32" x2="27" y2="43" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg><span id="copy-span">コピーする</span></div>
+	
+	<footer>
+		<p id=copyright>2019 © <a href="https://jetdwarf.com/">jetdwarf.com</a></p> 
+	</footer>
+	
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script src="main.js"></script>
+	<script>
+		hljs.
