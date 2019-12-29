@@ -44,16 +44,15 @@ function org_convert() {
 }
 
 function copy() {
-	var d = document,
-		w = window;
-	var copy_area = gid('copy-area');
+	var d = document, w = window, range, sel;
+	copy_area = gid('copy-area'),
 	copy_area.select();
-	var range = d.createRange();
+	range = d.createRange();
 	range.selectNodeContents(copy_area);
-	var sel = w.getSelection();
+	sel = w.getSelection();
 	sel.removeAllRanges();
 	sel.addRange(range);
 	copy_area.setSelectionRange(0, 999999);
 	d.execCommand('copy');
 	gid('copy-span').innerText = 'コピーしました！';
-}
+}
